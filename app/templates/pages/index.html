@@ -1,8 +1,27 @@
+
+
 {% extends 'base.html' %}
 
 
 {% block content %}
     <section>
-        
+        <div>
+            
+
+            {% if request.user.is_authenticated %} 
+                <p>Welcome {{request.user.first_name}} {{ request.user.last_name}}</p>
+
+                <div onclick="javascript: { document.getElementById('logout').submit()}" style="cursor:pointer;">
+                    logout
+                    <form action="{% url 'logout' %}" method="POST" id="logout">
+                        {% csrf_token %}
+                        <input type="hidden" name="logout">
+                    </form>
+                </div>
+                
+            {% else %}
+                <a href="{% url 'login' %}">go to login</a>
+            {% endif %}
+        </div>
     </section>
 {% endblock %}

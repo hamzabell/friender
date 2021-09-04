@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/register.css' %}">
+{% endblock %}
+
+{% block content %}
+    <script src="{% static 'js/account/register.js'%}"></script>
+    <section class="w-100">
+        <div class="d-flex justify-content-center mt-2 mb-5">
+            <form id="login-form" action="{% url 'register' %}" method="POST">
+                {% csrf_token %}
+                <div>
+                    <div id="avatar_container">
+                        <img id="avatar_image" src="https://i.pravatar.cc/300?img=1" alt="avatar_image">
+                        <div id="random_icon" onclick="genRandomImage()">
+                            <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M21.67 3.955l-2.825-2.202.665-.753 4.478 3.497-4.474 3.503-.665-.753 2.942-2.292h-4.162c-3.547.043-5.202 3.405-6.913 7.023 1.711 3.617 3.366 6.979 6.913 7.022h4.099l-2.883-2.247.665-.753 4.478 3.497-4.474 3.503-.665-.753 2.884-2.247h-4.11c-3.896-.048-5.784-3.369-7.461-6.858-1.687 3.51-3.592 6.842-7.539 6.858h-2.623v-1h2.621c3.6-.014 5.268-3.387 6.988-7.022-1.72-3.636-3.388-7.009-6.988-7.023h-2.621v-1h2.623c3.947.016 5.852 3.348 7.539 6.858 1.677-3.489 3.565-6.81 7.461-6.858h4.047z"/></svg>
+                        </div>
+                    </div>
+                    <input type="text" name="avatar" id="avatar">
+                </div>
+                <div class="form-group mt-5">
+                  <label for="first_name">First Name</label>
+                  <input type="text" class="form-control" id="first_name" name="first_name" placeholder="First Name" required>
+                </div>
+                <div class="form-group">
+                  <label for="last_name">Last Name</label>
+                  <input type="text" class="form-control" id="last_name" placeholder="Last Name" name="last_name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email" placeholder="Email" name="email">
+                  </div>
+                  <div class="form-group">
+                    <label for="date_of_birth">Date Of Birth</label>
+                    <input type="date" class="form-control" id="last_name"  name="date_of_birth">
+                  </div>
+                  <div class="form-group">
+                    <label for="bio">Tell Us about yourself</label>
+                    <textarea  class="form-control" id="bio" placeholder="You don't need to say much..." name="bio"></textarea>
+                  </div>
+                  <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="last_name" placeholder="Password" name="password">
+                  </div>
+                  <div class="form-group">
+                    <label for="confirm_password">Confirm Password</label>
+                    <input type="password" class="form-control" id="last_name" placeholder="Confirm Password" name="confirm_password">
+                  </div>
+                  <input type="submit" value="Register" class="btn btn-secondary btn-block">
+              </form>
+        </div>
+    </section>
+{% endblock %}

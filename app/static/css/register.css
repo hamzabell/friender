@@ -1,0 +1,25 @@
+#login-form {
+    width: 30rem;
+}
+#avatar {
+    display: none;
+}
+#avatar_container {
+    border-radius: 999px;
+    display: flex;
+    position: relative;
+    justify-content: center;
+    object-fit: contain;
+}
+
+#avatar_container  img {
+    border-radius: inherit;
+}
+
+#avatar_container #random_icon {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    color: white;
+    cursor: pointer;
+}
